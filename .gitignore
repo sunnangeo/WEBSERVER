@@ -1,6 +1,10 @@
 #忽略的文件
 .vscode/
-bin/
 build/
-resources/
-log/
+resources/css
+resources/fonts
+resources/images
+resources/js
+resources/video/
+resources/*.html
+log/*.log

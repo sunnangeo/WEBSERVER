@@ -13,7 +13,7 @@ aux_source_directory (src/server SRC_SERVER)
 aux_source_directory (src/timer SRC_TIMER)
 
 include_directories(include)
-link_directories (/usr/lib64/mysql/) # 库文件搜索路径
+#link_directories (/usr/lib64/mysql/) # 库文件搜索路径
 
 
 add_executable (server ${SRC_CUR} ${SRC_BUFF} ${SRC_HTTP} ${SRC_LOG} ${SRC_POOL} ${SRC_SERVER} ${SRC_TIMER})

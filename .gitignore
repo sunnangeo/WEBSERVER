@@ -1,5 +1,4 @@
 #忽略的文件
-.vscode/
 build/
 resources/css
 resources/fonts

@@ -10,8 +10,8 @@ log/*.log
 *.txt
 *.ini
 
+mysqlconnection.h
+mysqlconnection.cpp
 mysqlconnectionpool.h
 mysqlconnectionpool.cpp
 
-mysqlconnection.h
-mysqlconnection.cpp

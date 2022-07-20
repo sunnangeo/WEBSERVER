@@ -1,5 +1,5 @@
 # webserver
-用C++11实现的高性能集群WEB服务器，经过webbenchh压力测试可以实现上万的QPS
+使用IO多路复用(Epoll)和线程池技术实现的reactor模式的高性能WEB服务器，使用nginx负载均衡实现了集群，并使用了webbenchh进行了压力测试
 
 ## 功能
 * 利用IO复用技术Epoll与线程池实现多线程的Reactor高并发模型;

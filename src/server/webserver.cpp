@@ -11,7 +11,7 @@ WebServer::WebServer(
             timer_(new HeapTimer()), threadpool_(new ThreadPool()), epoller_(new Epoller())
     {
 
-    const char* str  = "/root/Linux/WEBSERVER/resources/";
+    const char* str  = "/data/WEBSERVER/resources/";
     srcDir_ = const_cast<char*> (str);
     //int len = strlen(str);
     //srcDir_ = (char*)malloc(len + 1);
@@ -26,9 +26,11 @@ WebServer::WebServer(
     HttpConn::srcDir = srcDir_;
 
     // 初始化线程池
+    threadpool_->setMode(PoolMode::MODE_CACHED);
     threadpool_->start();
 
     // 初始化数据库连接池
+    //ConnectionPool::getConnectionPool();
     SqlConnPool::Instance()->Init("localhost", sqlPort, sqlUser, sqlPwd, dbName, connPoolNum);
     
     // 初始化事件的模式

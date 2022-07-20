@@ -7,3 +7,11 @@ resources/js
 resources/video/
 resources/*.html
 log/*.log
+*.txt
+*.ini
+
+mysqlconnectionpool.h
+mysqlconnectionpool.cpp
+
+mysqlconnection.h
+mysqlconnection.cpp

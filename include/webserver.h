@@ -18,6 +18,8 @@
 #include "sqlconnRAII.h"
 #include "httpconn.h"
 
+#include "mysqlconnectionpool.h"
+
 class WebServer {
 public:
     WebServer(

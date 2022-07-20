@@ -13,6 +13,9 @@
 #include "sqlconnpool.h"
 #include "sqlconnRAII.h"
 
+#include "mysqlconnection.h"
+#include "mysqlconnectionpool.h"
+
 class HttpRequest {
 public:
     enum PARSE_STATE {

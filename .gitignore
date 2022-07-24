@@ -9,9 +9,8 @@ resources/*.html
 log/*.log
 *.txt
 *.ini
-
 mysqlconnection.h
 mysqlconnection.cpp
-mysqlconnectionpool.h
-mysqlconnectionpool.cpp
 
+mysqlconnectionpool.h
+mysqlconnection.cpp

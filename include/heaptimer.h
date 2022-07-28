@@ -1,14 +1,16 @@
 #ifndef HEAP_TIMER_H
 #define HEAP_TIMER_H
 
+#include <arpa/inet.h>
+#include <assert.h>
+#include <time.h>
+
+#include <algorithm>
+#include <chrono>
+#include <functional>
 #include <queue>
 #include <unordered_map>
-#include <time.h>
-#include <algorithm>
-#include <arpa/inet.h> 
-#include <functional> 
-#include <assert.h> 
-#include <chrono>
+
 #include "log.h"
 
 using TimeoutCallBack = std::function<void()>;
@@ -21,45 +23,43 @@ using TimeStamp = Clock::time_point;
 // typedef Clock::time_point TimeStamp;
 
 struct TimerNode {
-    int id;
-    TimeStamp expires;
-    TimeoutCallBack cb;
-    bool operator<(const TimerNode& t) {
-        return expires < t.expires;
-    }
+  int id;
+  TimeStamp expires;
+  TimeoutCallBack cb;
+  bool operator<(const TimerNode& t) { return expires < t.expires; }
 };
 class HeapTimer {
-public:
-    HeapTimer() { heap_.reserve(64);}
+ public:
+  HeapTimer() { heap_.reserve(64); }
 
-    ~HeapTimer() { clear(); }
-    
-    void adjust(int id, int newExpires);
+  ~HeapTimer() { clear(); }
 
-    void add(int id, int timeOut, const TimeoutCallBack& cb);
+  void adjust(int id, int newExpires);
 
-    void doWork(int id);
+  void add(int id, int timeOut, const TimeoutCallBack& cb);
 
-    void clear();
+  void doWork(int id);
 
-    void tick();
+  void clear();
 
-    void pop();
+  void tick();
 
-    int GetNextTick();
+  void pop();
 
-private:
-    void del_(size_t i);
-    
-    void siftup_(size_t i);
+  int GetNextTick();
 
-    bool siftdown_(size_t index, size_t n);
+ private:
+  void del_(size_t i);
 
-    void SwapNode_(size_t i, size_t j);
+  void siftup_(size_t i);
 
-    std::vector<TimerNode> heap_;
+  bool siftdown_(size_t index, size_t n);
 
-    std::unordered_map<int, size_t> ref_;
+  void SwapNode_(size_t i, size_t j);
+
+  std::vector<TimerNode> heap_;
+
+  std::unordered_map<int, size_t> ref_;
 };
 
-#endif //HEAP_TIMER_H
+#endif  // HEAP_TIMER_H

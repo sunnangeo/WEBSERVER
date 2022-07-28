@@ -188,7 +188,7 @@ class ThreadPool {
 
     // 所有任务必须执行完成，线程池才可以回收所有线程资源
     for (;;) {
-      Task task; 
+      Task task;
       {
         // 先获取锁
         std::unique_lock<std::mutex> lock(taskQueMtx_);
@@ -259,14 +259,14 @@ class ThreadPool {
         notFull_.notify_all();
       }  // 就应该把锁释放掉
 
-        // 当前线程负责执行这个任务
+      // 当前线程负责执行这个任务
       if (task != nullptr) {
         task();  // 执行function<void()>
       }
 
       idleThreadSize_++;
       lastTime = std::chrono::high_resolution_clock()
-                      .now();  // 更新线程执行完任务的时间
+                     .now();  // 更新线程执行完任务的时间
     }
   }
 

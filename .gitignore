@@ -14,3 +14,4 @@ mysqlconnection.cpp
 
 mysqlconnectionpool.h
 mysqlconnection.cpp
+cpp11.md

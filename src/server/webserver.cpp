@@ -28,7 +28,7 @@ WebServer::WebServer(int port, int trigMode, int timeoutMS, bool OptLinger,
   HttpConn::srcDir = srcDir_;
 
   // 初始化线程池
-  threadpool_->setMode(PoolMode::MODE_CACHED);
+  //threadpool_->setMode(PoolMode::MODE_CACHED);
   threadpool_->start();
 
   // 初始化数据库连接池

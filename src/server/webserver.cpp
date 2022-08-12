@@ -13,7 +13,7 @@ WebServer::WebServer(int port, int trigMode, int timeoutMS, bool OptLinger,
       timer_(new HeapTimer()),
       threadpool_(new ThreadPool()),
       epoller_(new Epoller()) {
-  const char* str = "/data/WEBSERVER/resources/";
+  const char* str = "/home/project/WEBSERVER/resources";
   srcDir_ = const_cast<char*>(str);
   // int len = strlen(str);
   // srcDir_ = (char*)malloc(len + 1);

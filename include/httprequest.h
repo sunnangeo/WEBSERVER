@@ -12,7 +12,6 @@
 #include "buffer.h"
 #include "log.h"
 #include "mysqlconnection.h"
-#include "mysqlconnectionpool.h"
 #include "sqlconnRAII.h"
 #include "sqlconnpool.h"
 

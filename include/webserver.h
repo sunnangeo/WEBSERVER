@@ -15,7 +15,6 @@
 #include "heaptimer.h"
 #include "httpconn.h"
 #include "log.h"
-#include "mysqlconnectionpool.h"
 #include "sqlconnRAII.h"
 #include "sqlconnpool.h"
 #include "threadpool.h"

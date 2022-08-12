@@ -272,7 +272,7 @@ INSERT INTO user(username, password) VALUES('name', 'password');
 ./autobuild.sh
 ```
 
-/webbench -c 10000 -t 10 http://101.34.47.137:80/index.html
+./webbench -c 10000 -t 10 http://121.37.5.19:80/index.html
 
 # 面试问题
 

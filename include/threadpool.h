@@ -99,12 +99,11 @@ class ThreadPool {
   // pool.submitTask(sum1, 10, 20);   csdn  大秦坑王  右值引用+引用折叠原理
   // 返回值future<>
   template <typename Func, typename... Args>
-  auto submitTask(Func&& func, Args&&... args)
-      -> std::future<decltype(func(args...))> {
+  auto submitTask(Func&& func, Args&&... args) -> std::future<decltype(func(args...))> {
     // 打包任务，放入任务队列里面
     using RType = decltype(func(args...));
-    auto task = std::make_shared<std::packaged_task<RType()>>(
-        std::bind(std::forward<Func>(func), std::forward<Args>(args)...));
+
+    auto task = std::make_shared<std::packaged_task<RType()>>(std::bind(std::forward<Func>(func), std::forward<Args>(args)...));
     std::future<RType> result = task->get_future();
 
     // 获取锁

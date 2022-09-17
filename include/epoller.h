@@ -11,7 +11,7 @@
 
 class Epoller {
  public:
-  explicit Epoller(int maxEvent = 1024);
+  explicit Epoller(int maxEvent = 65535);
 
   ~Epoller();
 

@@ -104,7 +104,7 @@ class ThreadPool {
     // 打包任务，放入任务队列里面
     //using RType = decltype(func(args...));
 
-    auto task = std::make_shared<std::packaged_task<void()>>(
+    auto task = std::make_shared<std::function<void()>>(
         std::bind(std::forward<Func>(func), std::forward<Args>(args)...));
     //std::future<RType> result = task->get_future();
 
@@ -116,7 +116,7 @@ class ThreadPool {
         })) {
       // 表示notFull_等待1s种，条件依然没有满足
       std::cerr << "task queue is full, submit task fail." << std::endl;
-      auto task = std::make_shared<std::packaged_task<void()>>(
+      auto task = std::make_shared<std::function<void()>>(
           []() { return; });
       (*task)();
       //return task->get_future();
